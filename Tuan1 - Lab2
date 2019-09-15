@@ -1,0 +1,116 @@
+public class BTlap2 {
+
+    public void bac1() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhap he so a, b: ");
+        float a= scanner.nextFloat();
+        float b= scanner.nextFloat();
+        System.out.printf("He phuong trinh: %fx +(%f) =0",a,b);
+        System.out.println();
+        
+           if (a==0)
+            {
+                if (b==0)
+                    System.out.printf("Phuong trinh vo so nghiem.");
+                else
+                    System.out.printf("Phuong trinh vo nghiem");
+            }
+            else{
+                double x = -b/a;
+                System.out.printf("Nghiem cua phuong trinh: %f", x);
+        
+                }
+        }
+
+    public void bac2() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhap he so a, b, c: ");
+        float a= scanner.nextFloat();
+        float b= scanner.nextFloat();
+        float c= scanner.nextFloat();
+        System.out.printf("He phuong trinh: %fx^2 + %fx +(%f) =0",a,b,c);
+        System.out.println();
+        if (a==0){
+           if (b==0)
+            {
+                if (c==0)
+                    System.out.printf("Phuong trinh vo so nghiem.");
+                else
+                    System.out.printf("Phuong trinh vo nghiem");
+            }
+            else{
+                double x = -c/b;
+                System.out.printf("Nghiem cua phuong trinh: %f", x);
+        
+                }
+        }
+        else{
+            double delta = Math.pow(b,2)-4*a*c;
+            if(delta < 0)
+                System.out.printf("Phuong trinh vo nghiem");
+            if(delta == 0)
+                {
+                    double xn= -b/(2*a);
+                    System.out.printf("Phuong trinh co nghiem kep: x= %f", xn);
+                }
+            else
+                {
+                    double x1=(-b+ Math.sqrt(delta))/(2*a);
+                    double x2=(-b- Math.sqrt(delta))/(2*a);
+                    System.out.printf("Phuong trinh co 2 nghiem phan biet: x1= %f, x2= %f",x1,x2);
+                }
+            }
+        }
+    public void tinhtien(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Nhap so dien su dung: ");
+        int dien = scanner.nextInt();
+       
+        do{
+            if (dien<50){
+                int tien=dien*1000;
+                System.out.printf("Tien dien cua thang la: %d",tien);
+            } 
+            else{
+                {
+                int tien=dien*1000+(dien-50)*1200;
+                System.out.printf("Tien dien cua thang la: %d",tien);   
+                }
+            }
+        }while (dien<0);
+    
+    }
+    public static void main(String [] args){
+        int chon;
+        Scanner scanner = new Scanner(System.in);
+        for (;;) {
+            System.out.println("+--------------------------+");
+            System.out.println("1.Giai phuong trinh bac nhat");
+            System.out.println("2.Giai phuong trinh bac 2");
+            System.out.println("3.Tinh tien dien");
+            System.out.println("4.Thoat");
+            System.out.println("+--------------------------+");
+             do {
+                System.out.println("Chon chuc nang (1/2/3/4): ");
+                chon = scanner.nextInt();
+            }while ((chon<1)|| (chon>3));
+             switch (chon){
+                 case 1:
+                     new BTlap2().bac1();
+                     System.out.println();
+                     break;
+                 case 2:
+                     new BTlap2().bac2();
+                     System.out.println();
+                     break;
+                 case 3:
+                     new BTlap2().tinhtien();
+                     System.out.println();
+                     break;
+                 case 4:
+                     System.exit(0);
+                     break;    
+                }
+             }
+        }
+}
